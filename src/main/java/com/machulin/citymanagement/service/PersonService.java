@@ -1,5 +1,6 @@
 package com.machulin.citymanagement.service;
 
+import com.machulin.citymanagement.model.Passport;
 import com.machulin.citymanagement.model.Person;
 import com.machulin.citymanagement.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,13 @@ import java.util.List;
 public class PersonService {
     @Autowired
     private PersonRepository personRepository;
+    @Autowired
+    private PassportService passportService;
+
 
     public Person createPerson(Person person) {
+        Passport passport = passportService.createPassport();
+        person.setPassport(passport);
         return personRepository.save(person);
     }
 
@@ -26,6 +32,7 @@ public class PersonService {
     }
 
     public void deletePersonById(Long id) {
+        //passportService.deletePassport();
         personRepository.deleteById(id);
     }
 
