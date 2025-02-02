@@ -14,7 +14,9 @@ public class PassportService {
     private PassportRepository passportRepository;
 
     public Passport createPassport() {
-        return passportRepository.save(new Passport());
+        Passport passport = new Passport();
+        passport.setNumber(PassportNumberGenerator.generatePassportNumber());
+        return passportRepository.save(passport);
     }
 
     public void deletePassport(Passport passport) {

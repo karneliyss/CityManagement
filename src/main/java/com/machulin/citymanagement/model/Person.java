@@ -1,11 +1,10 @@
 package com.machulin.citymanagement.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -20,4 +19,7 @@ public class Person {
 
     @OneToOne
     private Passport  passport;
+
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    private List<Car> cars;
 }

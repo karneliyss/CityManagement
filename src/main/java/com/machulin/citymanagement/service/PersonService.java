@@ -3,17 +3,18 @@ package com.machulin.citymanagement.service;
 import com.machulin.citymanagement.model.Passport;
 import com.machulin.citymanagement.model.Person;
 import com.machulin.citymanagement.repository.PersonRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-//@AllArgsConstructor
+@AllArgsConstructor
 public class PersonService {
-    @Autowired
+
     private PersonRepository personRepository;
-    @Autowired
+
     private PassportService passportService;
 
 
