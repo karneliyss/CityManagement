@@ -16,8 +16,7 @@ public class PassportService {
     private PassportNumberGenerateService passportNumberGenerateService;
 
 
-    public Passport createPassport() {
-        Passport passport = new Passport();
+    public Passport createPassport(Passport passport) {
         Long passportNumber = passportNumberGenerateService.generatePassportNumber();
         passport.setNumber(passportNumber);
         return passportRepository.save(passport);

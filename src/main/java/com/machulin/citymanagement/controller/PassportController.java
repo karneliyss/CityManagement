@@ -22,8 +22,8 @@ public class PassportController {
 
 
     @PostMapping
-    public Passport createPassport() {
-        return passportService.createPassport();
+    public Passport createPassport(Passport passport) {
+        return passportService.createPassport(passport);
     }
 
 
