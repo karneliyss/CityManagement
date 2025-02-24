@@ -1,25 +1,24 @@
 package com.machulin.citymanagement.model;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Entity
 @Getter
 @Setter
+public class Car {
 
-
-public class Passport {
 
     @Id
     @GeneratedValue
     private Long id;
-    private Long number;
 
 
+    private String mark;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "person_id")
     private Person person;
 }
