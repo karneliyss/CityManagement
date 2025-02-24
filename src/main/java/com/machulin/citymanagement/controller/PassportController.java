@@ -2,6 +2,7 @@ package com.machulin.citymanagement.controller;
 
 
 import com.machulin.citymanagement.model.Passport;
+import com.machulin.citymanagement.model.Person;
 import com.machulin.citymanagement.service.PassportService;
 import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
@@ -22,8 +23,8 @@ public class PassportController {
 
 
     @PostMapping
-    public Passport createPassport(Passport passport) {
-        return passportService.createPassport(passport);
+    public Passport createPassport(Person person) {
+        return passportService.createPassport(person);
     }
 
 

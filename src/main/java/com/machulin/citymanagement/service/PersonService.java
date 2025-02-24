@@ -13,13 +13,11 @@ import java.util.List;
 public class PersonService {
 
     private PersonRepository personRepository;
-    private PassportNumberGenerateService passportNumberGenerateService;
+    private PassportService passportService;
+
 
     public Person createPerson(Person person) {
-        Passport passport = person.getPassport();
-        Long passportNumber = passportNumberGenerateService.generatePassportNumber();
-        passport.setNumber(passportNumber);
-        passport.setPerson(person);
+        Passport passport = passportService.createPassport(person);
         person.setPassport(passport);
         return personRepository.save(person);
     }

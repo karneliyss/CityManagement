@@ -2,6 +2,7 @@ package com.machulin.citymanagement.service;
 
 
 import com.machulin.citymanagement.model.Passport;
+import com.machulin.citymanagement.model.Person;
 import com.machulin.citymanagement.repository.PassportRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,9 +17,11 @@ public class PassportService {
     private PassportNumberGenerateService passportNumberGenerateService;
 
 
-    public Passport createPassport(Passport passport) {
+    public Passport createPassport(Person person) {
+        Passport passport = new Passport();
         Long passportNumber = passportNumberGenerateService.generatePassportNumber();
         passport.setNumber(passportNumber);
+        passport.setPerson(person);
         return passportRepository.save(passport);
     }
 
